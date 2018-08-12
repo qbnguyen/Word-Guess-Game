@@ -37,7 +37,8 @@
 
                     <div class=c ontainer3>
                         <div class="row">
-                            <div class="col-sm-12"><span id="guesses-left"></span>
+                            <div class="col-sm-12">
+                                <span id="guesses-left"></span>
                                 # of guesses remainning
                             </div>
                         </div>
@@ -59,11 +60,11 @@
     </body>
     <script type="text/javascript">
 
- // create an array of posible answers for the game 
+        // create an array of posible answers for the game 
         var word = ["steak", "burger", "fries"];
         var wins = 0;
 
-// create something to pick random selection from the array
+        // create something to pick random selection from the array
         let randomWord = Math.floor(Math.random() * word.length);
         let choosenWord = word[randomWord].split("");
         let underScore = [];
@@ -75,64 +76,64 @@
         console.log(choosenWord);
 
 
-
-//generate underscore for every letter ???
+        //generate underscore for every letter ???
         let generateUnderScore = () => {
             for (var i = 0; i < choosenWord.length; i++) {
 
-                underScore.push('_')
-                
+                underScore.push(' ___ ')
+
             }
 
             return underScore;
         }
         document.write(generateUnderScore());
 
-//register player guess when key is pressed "save in id user-text"
+        //register player guess when key is pressed "save in id user-text"
         document.getElementById("user-text");
-
 
         document.onkeyup = function (event) {
             userGuess = event.key
             userText.append(event.key);
-           
+
 
             // $("#user-text").textContent = event.key 
             console.log(event.key);
             checkGuess();
         };
-// write a function to check user guess vs underSCore then go and display it on the page 
+        // write a function to check user guess vs underSCore then go and display it on the page 
         function checkGuess() {
 
             for (let i = 0; i < choosenWord.length; i++) {
 
 
                 if (userGuess === choosenWord[i]) {
-                    alert("yay, you found a letter!");
-                    underScore[i]=(userGuess);
-                    underScore.push(userGuess);
+                    alert("yay, you found a letter!");break;
+
+                    //underScore[i]=(userGuess);
+                    //underScore.push(userGuess);
                 }
-                
-                    
-                    guessesLeft = 10;
-document.getElementById("guesses-left").textContent= guessesLeft;
-guessesLeft--  
-                
-                
+                else if (userGuess != choosenWord[i]) {
+                    alert("try again"); break;
+                }
+
             }
         }
+//??
+        let guessesLeft = 10;
+        function subtract(guessesLeft) {
+            console.log("sub")
+            
+        }
 
-//guessesLeft = 10;
-//document.getElementById("guesses-left").textContent= guessesLeft;
-
+   //got lost?     
+guessesLeft = 10;
+document.getElementById("guesses-left").textContent= guessesLeft;
 
 
 //create varriable to keep track of letter that need to be guess
 
 // if player guess right then show letter to replace__
 
-
 //if player press wrong key go and store it in the wrongKey array
-
 
     </script>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word-Guess-Game</title>
+    <script type="text/css" src="/assets/css/reset.css"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script type="text/javascript" href="assets/javascript/game.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <body>
+        <div class="jumbotron" "col-md-12" style="text-align: center;">
+            <h1>Welcome to Hangman</h1>
+
+            <p class="col-md-12">
+                <hr class="my-4">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div id="click-me">
+                                Press any key to get started!
+                                <span id="word"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container2">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span id="wins-text"></span>
+                            Wins=
+                        </div>
+                    </div>
+
+
+                    <div class=c ontainer3>
+                        <div class="row">
+                            <div class="col-sm-12"><span id="guesses-left"></span>
+                                # of guesses remainning
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=c ontainer4>
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                Letters Already Guessed=
+                                <span id="user-text"></span>
+
+                            </div>
+                        </div>
+                    </div>
+            </p>
+            </div>
+
+    </body>
+    <script type="text/javascript">
+
+ // create an array of posible answers for the game 
+        var word = ["steak", "burger", "fries"];
+        var wins = 0;
+
+// create something to pick random selection from the array
+        let randomWord = Math.floor(Math.random() * word.length);
+        let choosenWord = word[randomWord].split("");
+        let underScore = [];
+        let alreadyGuess = [];
+        var winsText = document.getElementById("wins-text");
+        var userText = document.getElementById("user-text");
+        var userGuess;
+
+        console.log(choosenWord);
+
+
+
+//generate underscore for every letter ???
+        let generateUnderScore = () => {
+            for (var i = 0; i < choosenWord.length; i++) {
+
+                underScore.push('_')
+                
+            }
+
+            return underScore;
+        }
+        document.write(generateUnderScore());
+
+//register player guess when key is pressed "save in id user-text"
+        document.getElementById("user-text");
+
+
+        document.onkeyup = function (event) {
+            userGuess = event.key
+            userText.append(event.key);
+           
+
+            // $("#user-text").textContent = event.key 
+            console.log(event.key);
+            checkGuess();
+        };
+// write a function to check user guess vs underSCore then go and display it on the page 
+        function checkGuess() {
+
+            for (let i = 0; i < choosenWord.length; i++) {
+
+
+                if (userGuess === choosenWord[i]) {
+                    alert("yay, you found a letter!");
+                    underScore[i]=(userGuess);
+                    underScore.push(userGuess);
+                }
+                
+                    
+                    guessesLeft = 10;
+document.getElementById("guesses-left").textContent= guessesLeft;
+guessesLeft--  
+                
+                
+            }
+        }
+
+//guessesLeft = 10;
+//document.getElementById("guesses-left").textContent= guessesLeft;
+
+
+
+//create varriable to keep track of letter that need to be guess
+
+// if player guess right then show letter to replace__
+
+
+//if player press wrong key go and store it in the wrongKey array
+
+
+    </script>

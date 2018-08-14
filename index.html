@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <span id="wins-text"></span>
-                            Wins=
+                           
                         </div>
                     </div>
 
@@ -106,29 +106,30 @@
             for (let i = 0; i < choosenWord.length; i++) {
 
 
-                if (userGuess === choosenWord[i]) {
-                    alert("yay, you found a letter!");break;
+                if (userGuess === choosenWord[i]); {
+                    
+                    alert("yay, you found a letter!")
 
+              
+                }  
                     //underScore[i]=(userGuess);
                     //underScore.push(userGuess);
-                }
-                else if (userGuess != choosenWord[i]) {
-                    alert("try again"); break;
-                }
-
+                
+                    
+                
             }
         }
 //??
-        let guessesLeft = 10;
-        function subtract(guessesLeft) {
-            console.log("sub")
+        //let guessesLeft = 10;
+       // function subtract(guessesLeft) {
+            //console.log("sub")
             
-        }
+        
 
    //got lost?     
-guessesLeft = 10;
-document.getElementById("guesses-left").textContent= guessesLeft;
 
+
+winsText.textContent = "Wins: " + wins;
 
 //create varriable to keep track of letter that need to be guess
 
